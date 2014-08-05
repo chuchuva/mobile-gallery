@@ -2,6 +2,7 @@
 {
   padding: 0;
   margin: 0;
+  background-color: #1c1c1c;
 }
 
 .grid-item
@@ -30,7 +31,6 @@
   top: 0;
   left: 0;
   position: absolute;
-  background-color: #000;
 }
 
 .image-holder
