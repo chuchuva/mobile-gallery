@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign In</title>
+  <style>
+    body
+    {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    h1, h2, h3
+    {
+      margin: 0 0 7px 0;
+    }
+
+    #id_content
+    {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 1em;
+    }
+
+    .cl_page_title
+    {
+      text-align: center;
+    }
+
+    .cl_sign_in_form
+    {
+      text-align: center;
+    }
+
+    .clPassword
+    {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 0.1em 0px;
+      text-align: center;
+      width: 320px;
+      padding: 3px;
+    }
+
+    .cl_sign_in
+    {
+      font-size: 180%;
+      margin: 0.1em 0px;
+      width: 60%;
+      text-align: center;
+      width: 136px;
+      height: 51px;
+    }
+
+    #password_label
+    {
+      color: gray;
+    }
+
+    .cl_contact
+    {
+      width: 310px;
+      text-align: left;
+      font-size: 80%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="id_content">
+    <div class="cl_sign_in_form">
+      <h1 class="cl_page_title">Sign In</h1>
+      <br />
+      <br />
+      <span id="password_label">Password:</span><br />
+      <input class="clPassword clEditBox" id="sPassword" name="sPassword" type="password" />
+      <div></div>
+      <input type="submit" class="cl_sign_in" value="Sign In" onclick="window.location.href='gallery.html'" />
+      <br />
+      <br />
+      <div class="cl_contact">
+        Forgot your password?<br />
+        Contact us
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("sPassword").focus();
+    </script>
+
+  </div>
+</body>
+</html>

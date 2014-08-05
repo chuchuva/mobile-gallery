@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web gallery</title>
+  <style>
+    body
+    {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    h1, h2, h3
+    {
+      margin: 0 0 7px 0;
+    }
+
+    #id_content
+    {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 1em;
+    }
+
+    .cl_page_title
+    {
+      text-align: center;
+    }
+
+    .cl_events_holder
+    {
+      text-align: left;
+      padding: 20px 0 40px 0;
+      margin: 0 auto;
+      line-height: 160%;
+    }
+    .cl_events_holder:before, .cl_events_holder:after
+    {
+      content:"";
+      display:table;
+    }
+    .cl_events_holder:after
+    {
+      clear:both;
+    }
+    /* For IE 6/7 (trigger hasLayout) */
+    .cl_events_holder
+    {
+      zoom:1;
+    }
+    .cl_events_holder.cl_2_columns
+    {
+      width: 600px;
+    }
+    .cl_events_holder.cl_3_columns
+    {
+      width: 750px;
+    }
+
+    .cl_weddings
+    {
+      width: 260px;
+      float: left;
+    }
+    .cl_events_holder.cl_1_column .cl_weddings
+    {
+      width: 100%;
+      float: none;
+    }
+    .cl_events_holder.cl_1_column .cl_weddings table
+    {
+      margin: 0 auto;
+    }
+    .cl_events_holder.cl_2_columns .cl_weddings
+    {
+      margin-right: 120px;
+    }
+    .cl_events_holder.cl_3_columns .cl_weddings
+    {
+      margin-right: 60px;
+    }
+
+    .cl_portraits
+    {
+      width: 220px;
+      float: left;
+    }
+    .cl_events_holder.cl_1_column .cl_portraits
+    {
+      float: none;
+    }
+    .cl_events_holder.cl_1_column .cl_portraits table
+    {
+      margin: 0 auto;
+    }
+    .cl_events_holder.cl_3_columns .cl_portraits
+    {
+      width: 190px;
+      margin-right: 60px;
+    }
+
+    .cl_events
+    {
+      float: left;
+    }
+    .cl_events_holder.cl_3_columns .cl_portraits
+    {
+      width: 180px;
+    }
+
+    .cl_events_holder .clRegistrations
+    {
+      text-align: center;
+      font-size: 80%;
+      color: Gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="id_content">
+    <h1 id="idStartTitle" class="cl_page_title">Photo Purchase Area</h1>
+    <div class='cl_events_holder cl_1_column'>
+      <div class="cl_events">
+        <table>
+          <tr>
+            <td class="clEvent">
+              <a href="sign-in.html?1">Test One</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="clEvent">
+              <a href="sign-in.html?2">Test Two</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
