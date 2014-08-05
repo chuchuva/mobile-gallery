@@ -2,14 +2,16 @@ MobileGallery = (function() {
 var _initialX;
 var _isSwiping;
 var _swipeDirection;
-var _photoUrls = [
-  "photos/01.jpg", "photos/02.jpg", "photos/03.jpg", "photos/04.jpg", "photos/05.jpg",
-  "photos/06.jpg", "photos/07.jpg", "photos/08.jpg", "photos/09.jpg", "photos/10.jpg",
-  "photos/11.jpg", "photos/12.jpg", "photos/13.jpg"
-];
+var PhotosBaseUrl = "http://chuchuva.com/mobile-gallery/";
+var _photoUrls = [];
 
 function init(params)
 {
+  for (var i = 0; i < 13; i++)
+  {
+    _photoUrls.push(PhotosBaseUrl + (i < 9 ? "0" : "") + (i + 1) + ".jpg");
+  }
+
   var hash = location.hash.replace('#', '');
   var i = (hash > 0 && hash <= _photoUrls.length) ? hash - 1 : 0;
   $(".image-holder img").attr("src", _photoUrls[i]);
