@@ -38,7 +38,8 @@ function init(params)
 
   $(document).on("touchend", ".photo", function(e) {
     e.preventDefault();
-    finishSwipe();
+    if (_isSwiping)
+      finishSwipe();
   });
 }
 
