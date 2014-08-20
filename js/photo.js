@@ -33,7 +33,13 @@ function init(params)
     {
       if (x == _initialX)
         return;
-      initSwipe($(this), (x < _initialX) ? "LEFT" : "RIGHT");
+      var url = $(this).find("img").attr("src");
+      var i = findPhoto(url);
+      var direction = (x < _initialX) ? "LEFT" : "RIGHT";
+      if ((i <= 0 && direction == "RIGHT") || 
+          (i >= _photoUrls.length - 1 && direction == "LEFT"))
+        return;
+      initSwipe(i, $(this), direction);
     }
 
     $(this).css("-webkit-transform", "translate3d(" + (x - _initialX) + "px, 0, 0)");
@@ -48,16 +54,14 @@ function init(params)
   });
 }
 
-function initSwipe(photo, direction)
+function initSwipe(i, photo, direction)
 {
   _isSwiping = true;
   _swipeDirection = direction;
-  console.log(_initialX);
 
   var newPhoto = photo.clone();
-  var url = photo.find("img").attr("src");
   newPhoto.find("img").attr("src", (direction == "LEFT") ? 
-    getNextPhotoUrl(url) : getPrevPhotoUrl(url));
+    getNextPhotoUrl(i) : getPrevPhotoUrl(i));
   newPhoto.insertAfter(photo);
 }
 
@@ -71,23 +75,19 @@ function findPhoto(url)
   return -1;
 }
 
-function getNextPhotoUrl(url)
+function getNextPhotoUrl(i)
 {
-  var i = findPhoto(url);
   if (i < 0)
     return _photoUrls[0];
   if (i >= _photoUrls.length)
-    return null;
+    return _photoUrls[_photoUrls.length - 1];
   return _photoUrls[i + 1];
 }
 
-function getPrevPhotoUrl(url)
+function getPrevPhotoUrl(i)
 {
-  var i = findPhoto(url);
-  if (i < 0)
+  if (i <= 0)
     return _photoUrls[0];
-  if (i == 0)
-    return null;
   return _photoUrls[i - 1];
 }
 
