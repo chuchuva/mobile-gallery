@@ -15,6 +15,8 @@ function init(params)
   var hash = location.hash.replace('#', '');
   var i = (hash > 0 && hash <= _photoUrls.length) ? hash - 1 : 0;
   $(".image-holder img").attr("src", _photoUrls[i]);
+  resizeToFit();
+
 
   _isSwiping = false;
 
@@ -52,6 +54,11 @@ function init(params)
     if (_isSwiping)
       finishSwipe();
   });
+
+  $(window).on("orientationchange", function(e) {
+    resizeToFit();
+  });
+
 }
 
 function initSwipe(i, photo, direction)
@@ -98,6 +105,34 @@ function finishSwipe()
   photoToRemove.next().css("-webkit-transform", "");
   photoToRemove.remove();
 }
+
+function resizeToFit()
+{
+  var imageHeight = 384;
+  var imageWidth = 512;
+
+  var containerWidth = $(".photo").width();
+  var containerHeight = $(".photo").height();
+
+  var fit = {
+    top: 0,
+    left: 0,
+    height: imageHeight * containerWidth / imageWidth
+  };
+  if (fit.height <= containerHeight)
+  {
+    fit.width = containerWidth;
+    fit.top = (containerHeight - fit.height) / 2;
+  }
+  else
+  {
+    fit.height = containerHeight;
+    fit.width = imageWidth * containerHeight / imageHeight;
+    fit.left = (containerWidth - fit.width) / 2;
+  }
+  $(".image-holder").css(fit);
+}
+
 
 return {
   "init": init
